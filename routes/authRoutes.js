@@ -77,7 +77,7 @@ router.post('/verify', (req, res) => {
     User.findOne({ email: email })
         .then(async (savedUser) => {
             if (savedUser) {
-                return res.json({ error: "Invalid Credentials" });
+                return res.status(422).json({ error: "Invalid Credentials" });
             }
             try {
 
